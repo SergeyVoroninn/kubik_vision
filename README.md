@@ -1,20 +1,19 @@
 # Rubik's cube + computer vision
 
 ## INSTALL
-+ for **easy** mode:
-    + install requirements `pip install -r requirements_easy.txt`
-+ for **hard** mode:
-    + create a Pypy virual enviroment with: `pypy -m venv venv_pypy`
-    + activate pypy `venv: venv_pypy\Scripts\activate`
-    + install requirements  `pip install -r requirements_hard.txt`
-    + without PyPy, the hard mode solver may take several _hours_ to complete.
-
+For Windows:
+1. create virual enviroment with: `python -m venv .venv`
+2. activate virual enviroment with: `.venv\Scripts\activate`
+3. install requirements `pip install -r requirements.txt`
 
 ## USAGE
-+ Press `Space` to capture the color of a cube face.
-+ Press `Q` to exit the program.
+
 1. `python kubik_calibration.py` define colors of your cube. Make sure that you have camera. Place the color of face to record the color for better definitions. Show the colors in the correct order. The calibration is strict — if you show the wrong color, restart the process.
 2. `python kubik_vision.py` to run cube view program. You must show all six faces with the correct orientation (e.g., _white_ on top, _green_ in front). The order in which you show the faces does not matter.. Find the front of the rubik's cube. Below is following structure of rubik's cube.
+
++ Press `Space` to capture the color of a cube face.
++ Press `Q` to exit the program.
+  
 ```
              |************|
              |*U1**U2**U3*|
@@ -47,28 +46,6 @@
     F = Front 
     B = Back 
 
-## `kubik_vision.py` supports two modes:
-
-easy: faster, less accurate, no large files  
-hard: slower, computes the shortest solution using advanced algorithms
-
-+ to choose the mode:
-    + easy:
-        + `python kubik_vision.py`
-        + `python kubik_vision.py easy`
-    + hard:
-        + `python kubik_vision.py hard`
-
-+ Advantages of easy mode:
-    + fast execution
-    + no need for 1 GB of disk space for lookup tables
-    + simple to use
-+ Advantages of hard mode:
-    + computes the shortest possible solution
-+ Disadvantages:
-    + very slow without PyPy
-    + need to install PyPy for faster complete
-    + makes files of tables with 1 GB size (delete with `python clear_hard.py`)
 
 ## Solution
 Solution string consists of space-separated parts, each of them represents a single move:
@@ -99,3 +76,4 @@ solution: F2 D2 B L2 U'
 + Thanks to these smart and good coders. Thats my first README.md file.
 + If there are some troubles text to my email: serghey117@gmail.com
 + If i dont answer repeat the letter.
++ OR text me in telegram @stereogad

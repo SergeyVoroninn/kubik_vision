@@ -193,35 +193,36 @@ if 'Empty' not in face_to_fill.values():
             print("Error:", str(e))
 
     elif mode =='hard':
-        import subprocess
+        print('Mode hard not supported')
+    #     import subprocess
 
-        if os.exists(r"venv_pypy\Scripts\pypy3.exe"):
-            pypy_executable = r"venv_pypy\Scripts\pypy3.exe"
-        else:
-            print(r"Pypy not found in <venv_pypy\Scripts\pypy3.exe>")
-            print("Execute with same interpretaror with what was this script ran")
-            pypy_executable = sys.executable
-        # 2. Путь к скрипту, который нужно запустить
-        script_to_run = "kubik_solver_hard.py"
+    #     if os.exists(r"venv_pypy\Scripts\pypy3.exe"):
+    #         pypy_executable = r"venv_pypy\Scripts\pypy3.exe"
+    #     else:
+    #         print(r"Pypy not found in <venv_pypy\Scripts\pypy3.exe>")
+    #         print("Execute with same interpretaror with what was this script ran")
+    #         pypy_executable = sys.executable
+    #     # 2. Путь к скрипту, который нужно запустить
+    #     script_to_run = "kubik_solver_hard.py"
 
-        # 3. Запуск процесса
-        try:
-            # Передаем аргументы через список. 
-            # check=True заставит Python выкинуть ошибку, если тот скрипт упадет.
-            # capture_output=True позволяет прочитать то, что скрипт напечатал в консоль.
-            result = subprocess.run(
-                [pypy_executable, script_to_run, cube_string], 
-                capture_output=True, 
-                text=True, 
-                encoding='utf-8',
-                check=True
-            )
+    #     # 3. Запуск процесса
+    #     try:
+    #         # Передаем аргументы через список. 
+    #         # check=True заставит Python выкинуть ошибку, если тот скрипт упадет.
+    #         # capture_output=True позволяет прочитать то, что скрипт напечатал в консоль.
+    #         result = subprocess.run(
+    #             [pypy_executable, script_to_run, cube_string], 
+    #             capture_output=True, 
+    #             text=True, 
+    #             encoding='utf-8',
+    #             check=True
+    #         )
 
-            # Вывод результата из другой среды
-            print("Solution:", result.stdout)
+    #         # Вывод результата из другой среды
+    #         print("Solution:", result.stdout)
 
-        except subprocess.CalledProcessError as e:
-            print("Ошибка при выполнении скрипта в другой среде:")
-            print(e.stderr)
-        except FileNotFoundError:
-            print("Не найден путь к интерпретатору PyPy. Проверьте путь.")
+    #     except subprocess.CalledProcessError as e:
+    #         print("Ошибка при выполнении скрипта в другой среде:")
+    #         print(e.stderr)
+    #     except FileNotFoundError:
+    #         print("Не найден путь к интерпретатору PyPy. Проверьте путь.")
